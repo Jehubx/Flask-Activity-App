@@ -4,12 +4,14 @@ from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from flask_bcrypt import Bcrypt
 from functools import wraps
+import secrets
 
 app = Flask(__name__)
 
+secret_key = secrets.token_hex(16)
 app.config.update(dict(
-    SECRET_KEY="powerful secretkey",
-    WTF_CSRF_SECRET_KEY="a csrf secret key"
+    SECRET_KEY="secret_key",
+    WTF_CSRF_SECRET_KEY="ae9ad4e8766589d7a9d02035015c949d"
 ))
 
 #Create and instance
